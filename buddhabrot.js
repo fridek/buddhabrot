@@ -21,7 +21,7 @@ var exposures = [];
 var maxexposure = [0,0,0];
 var counter     = 0;
 
-var run = true;
+var run = false;
 
 var start = new Date().getTime();
 
@@ -140,10 +140,17 @@ function init() {
   for(var pass=0;pass<3;pass++)
     exposures[pass] = new goog.math.Matrix(N,N);
     
-  for(var i=0;i<N;i++) 
-    for(var j=0;j<N;j++)
-      image.data[(i * N + j) * 4 + 3] = 255;  // alpha channel
+  for(var i=0;i<N*N;i++) {
+    image.data[i * 4] = 0;  // red channel
+    image.data[i * 4 + 1] = 0;  // green channel
+    image.data[i * 4 + 2] = 0;  // blue channel
+    image.data[i * 4 + 3] = 255;  // alpha channel
+  }
   
-    
-  draw();
+  context.putImageData(image, 0, 0);  
+  context.font         = '24px sans-serif';
+  context.fillText('Buddhabrot', 230, 250);
+  context.fillText('Press start to calculate', 175, 300);
+  
+  context.font         = '10px sans-serif';
 }
