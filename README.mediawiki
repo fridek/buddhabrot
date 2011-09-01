@@ -1,0 +1,5 @@
+== Buddhabrot ==
+
+Visit:
+
+[[http://fridek.github.com/buddhabrot/]]
