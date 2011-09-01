@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>Buddhabrot WebGL</title>
+    <meta http-equiv="content-type" content="text/html; utf-8">
+
+    <script type="text/javascript" src="http://closure-library.googlecode.com/svn/trunk/closure/goog/base.js"></script>
+    
+    <script type="text/javascript">
+      goog.require('goog.math.Matrix');    
+    </script>
+    
+    <script type="text/javascript" src="buddhabrot.js"></script>
+    
+    <style type="text/css">
+      #canvas {
+        display: block;
+        width: 800px;
+        height: 800px;
+      }
+    </style>
+  </head>
+  <body onload="init();">
+    <canvas id="canvas" width="800" height="800">
+
+    </canvas>
+  </body>
+</html>
