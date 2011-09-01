@@ -8,29 +8,57 @@
   <style type="text/css">
     body {
       margin-top: 1.0em;
-      background-color: #07af14;
+      background-color: #fff;
       font-family: Helvetica, Arial, FreeSans, san-serif;
-      color: #ffffff;
+      color: #000;
     }
     #container {
       margin: 0 auto;
-      width: 700px;
+      width: 900px;
     }
-    h1 { font-size: 3.8em; color: #f850eb; margin-bottom: 3px; }
+    h1 { font-size: 3.8em; color: #000; margin-bottom: 3px; }
     h1 .small { font-size: 0.4em; }
     h1 a { text-decoration: none }
-    h2 { font-size: 1.5em; color: #f850eb; }
-    h3 { text-align: center; color: #f850eb; }
-    a { color: #f850eb; }
+    h2 { font-size: 1.5em; color: #000; }
+    h3 { text-align: center; color: #000; }
+    a { color: #000; }
     .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
     .download { float: right; }
-    pre { background: #000; color: #fff; padding: 15px;}
+    pre { background: #fff; color: #000; padding: 15px;}
     hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
     .footer { text-align:center; padding-top:30px; font-style: italic; }
+    cite {
+      display: block;
+      padding: 15px;
+      text-style: italic;
+    }
   </style>
+
+  <script type="text/javascript" src="http://closure-library.googlecode.com/svn/trunk/closure/goog/base.js"></script>
+  
+  <script type="text/javascript">
+    goog.require('goog.math.Matrix');    
+  </script>
+  
+  <script type="text/javascript" src="buddhabrot.js"></script>
+  
+  <style type="text/css">
+    #canvas {
+      display: block;
+      margin: 0 auto;
+      width: 600px;
+      height: 600px;
+    }
+    
+    #examples img {
+      display: block;
+      clear: both;
+      margin: 10px auto;
+    }
+  </style>  
 </head>
 
-<body>
+<body onload="init();">
   <a href="http://github.com/fridek/buddhabrot"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
 
   <div id="container">
@@ -46,15 +74,34 @@
       <span class="small">by <a href="http://github.com/fridek">fridek</a></span></h1>
 
     <div class="description">
-      (from wiki: http://en.wikipedia.org/wiki/Buddhabrot)
-
-The Buddhabrot is a map related to the Mandelbrot set. Its name reflects its similarity to classical depictions of Gautama Buddha, seated in a meditation pose with a forehead mark (tikka) and traditional topknot (ushnisha).
+      from wiki: <a href="http://en.wikipedia.org/wiki/Buddhabrot">http://en.wikipedia.org/wiki/Buddhabrot</a>
+    <cite>
+      The Buddhabrot is a map related to the Mandelbrot set. Its name reflects its similarity to classical depictions of Gautama Buddha, seated in a meditation pose with a forehead mark (tikka) and traditional topknot (ushnisha).
+      </cite>
     </div>
 
     <p>Project is JS + 2D canvas Buddhabrot generator.
 Version 2.0 will be based on WebGL.</p><h2>Contact</h2>
-<p>Sebastian Poręba (sebastian.poreba@gmail.com)<br/>www.smashinglabs.pl</p>
+<p>Sebastian Poręba (<a href="mailto:sebastian.poreba@gmail.com">sebastian.poreba@gmail.com</a>)
+<br/><a href="http://www.smashinglabs.pl">www.smashinglabs.pl</a></p>
 
+    <canvas id="canvas" width="600" height="600">
+
+    </canvas>
+    <p>
+      Use these if Buddhabrot kills your browser:
+      <button onclick="run = false;">Stop</button>
+      <button onclick="run = true; draw();">Start</button>
+    </p>
+    <p id="examples">
+      Examples of rendered Buddhabrots:<br />
+      300 iterations:
+      <img src="canvas-3pass-300.png" />
+      1000 iterations:
+      <img src="canvas-3pass-1000.png" />
+      2800 iterations:
+      <img src="canvas-3pass-2800.png" />
+    </p>
 
     <h2>Download</h2>
     <p>
@@ -67,6 +114,16 @@ Version 2.0 will be based on WebGL.</p><h2>Contact</h2>
       <pre>$ git clone git://github.com/fridek/buddhabrot</pre>
     </p>
 
+    <h2>Credits</h2>
+    <p>
+Inspired by:<br />
+<ul>
+  <li><a href="http://www.mathworks.com/matlabcentral/fileexchange/7726-pseudo-coloring">http://www.mathworks.com/matlabcentral/fileexchange/7726-pseudo-coloring</a></li>
+  <li><a href="http://jashkenas.s3.amazonaws.com/misc/buddhabrot/docs/buddhabrot.html">http://jashkenas.s3.amazonaws.com/misc/buddhabrot/docs/buddhabrot.html</a></li>
+  <li><a href="http://www.planet-source-code.com/vb/scripts/ShowCode.asp?txtCodeId=1684&lngWId=7">http://www.planet-source-code.com/vb/scripts/ShowCode.asp?txtCodeId=1684&lngWId=7</a></li>
+</ul>
+    </p>
+    
     <div class="footer">
       get the source code on GitHub : <a href="http://github.com/fridek/buddhabrot">fridek/buddhabrot</a>
     </div>
