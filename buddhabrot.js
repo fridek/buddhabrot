@@ -23,7 +23,7 @@ var counter     = 0;
 
 var run = false;
 
-var start = new Date().getTime();
+var start = 0;
 
 function print_infobar() {
   var passed = new Date();
@@ -44,7 +44,7 @@ function print_infobar() {
 }
 
 function draw() {
-  // if(counter > limit) return;
+  if(start === 0) start = new Date().getTime();
   if(!run) return;
   counter++;
   
